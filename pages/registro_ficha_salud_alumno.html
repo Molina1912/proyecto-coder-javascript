@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha de Salud del Alumno</title>
+  <link rel="stylesheet" href="../css/ficha_salud.css">
+</head>
+<body class="registro">
+  <div class="form-container">
+    <h2>Ficha de Salud del Alumno</h2>
+
+    <!-- Texto destacado -->
+    <p class="info-box">
+    La información solicitada en esta ficha de salud es fundamental para velar por el bienestar y seguridad de su hijo/a dentro del establecimiento. Por favor complete cada pregunta con total sinceridad.
+    </p>
+
+    <form>
+      <!-- Pregunta 1 -->
+      <label>1. ¿Actualmente, su hijo/a padece de alguna enfermedad?</label><br>
+      <input type="radio" name="enfermedad" value="no" onclick="toggleSelect('enfermedad', false)"> No
+      <input type="radio" name="enfermedad" value="si" onclick="toggleSelect('enfermedad', true)"> Sí
+
+      <div id="select-enfermedad" style="display:none; margin-top:10px;">
+        <select onchange="toggleOtra('enfermedad')">
+          <option value="">Seleccione</option>
+          <option value="diabetes">Diabetes</option>
+          <option value="asma">Asma</option>
+          <option value="alergia">Alergia</option>
+          <option value="otra">Otra</option>
+        </select>
+        <input type="text" id="otra-enfermedad" placeholder="Especifique la enfermedad" style="display:none; margin-top:8px;" required>
+      </div>
+
+      <!-- Pregunta 2 -->
+      <label>2. ¿Actualmente está en tratamiento o toma algún medicamento?</label><br>
+      <input type="radio" name="tratamiento" value="no" onclick="toggleSelect('tratamiento', false)"> No
+      <input type="radio" name="tratamiento" value="si" onclick="toggleSelect('tratamiento', true)"> Sí
+
+      <div id="select-tratamiento" style="display:none; margin-top:10px;">
+        <select onchange="toggleOtra('tratamiento')">
+          <option value="">Seleccione</option>
+          <option value="insulina">Insulina</option>
+          <option value="inhalador">Inhalador</option>
+          <option value="antialergicos">Antialérgicos</option>
+          <option value="otra">Otro</option>
+        </select>
+        <input type="text" id="otra-tratamiento" placeholder="Especifique el tratamiento" style="display:none; margin-top:8px;" required>
+      </div>
+
+      <!-- Pregunta 3 -->
+      <label>3. ¿Ha tenido operaciones?</label><br>
+      <input type="radio" name="operaciones" value="no" onclick="toggleSelect('operaciones', false)"> No
+      <input type="radio" name="operaciones" value="si" onclick="toggleSelect('operaciones', true)"> Sí
+
+      <div id="select-operaciones" style="display:none; margin-top:10px;">
+        <select onchange="toggleOtra('operaciones')">
+          <option value="">Seleccione</option>
+          <option value="apendicitis">Apendicitis</option>
+          <option value="fractura">Fractura</option>
+          <option value="cirugiaMenor">Cirugía menor</option>
+          <option value="otra">Otra</option>
+        </select>
+        <input type="text" id="otra-operaciones" placeholder="Especifique la operación" style="display:none; margin-top:8px;" required>
+      </div>
+
+      <!-- Pregunta 4 -->
+      <label>4. ¿Presenta algún problema físico?</label><br>
+      <input type="radio" name="fisico" value="no" onclick="toggleSelect('fisico', false)"> No
+      <input type="radio" name="fisico" value="si" onclick="toggleSelect('fisico', true)"> Sí
+
+      <div id="select-fisico" style="display:none; margin-top:10px;">
+        <select onchange="toggleOtra('fisico')">
+          <option value="">Seleccione</option>
+          <option value="visual">Visual</option>
+          <option value="auditivo">Auditivo</option>
+          <option value="ejercicio">Con el ejercicio físico</option>
+          <option value="otra">Otro</option>
+        </select>
+        <input type="text" id="otra-fisico" placeholder="Especifique el problema físico" style="display:none; margin-top:8px;" required>
+      </div>
+
+      <br>
+      <button type="submit" class="btn btn-primary">Guardar Ficha de Salud</button>
+      <button type="submit" class="btn btn-secondary">Siguiente</button>
+    </form>
+  </div>
+  <script src="../js/mostrar_ocultar.js"></script>
+</body>
+</html>

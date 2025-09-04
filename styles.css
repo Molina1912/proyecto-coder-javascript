@@ -63,6 +63,21 @@ button:hover {
   background-color: #0055aa;
 }
 
+.logo {
+  position: absolute;
+  top: 15px;              /* separación desde arriba */
+  left: 50%;              /* lo llevamos al centro */
+  transform: translateX(-50%); /* corrige el desajuste */
+  width: 120px;           /* tamaño del logo */
+  height: auto;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 /* Panel derecho: imagen */
 .image-container {
   width: 60%;
@@ -183,4 +198,21 @@ body.registro form button {
 
 body.registro form button:hover {
   background-color: #218838;
+}
+
+.form-container label {
+  display: block;       /* asegura que el label ocupe toda la línea */
+  margin-bottom: 15px;
+  padding: 10px;   /* espacio debajo del texto de la pregunta */
+  font-size: 14px;
+  font-weight: bold;    /* opcional, para destacar */
+}
+
+/* Ajuste de espacio para los selects */
+.form-container select {
+  margin-bottom: 15px; /* da espacio debajo del select */
+  padding: 10px;       /* igual que los inputs */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
 }

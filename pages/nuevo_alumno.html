@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro Nuevo Alumno</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="registro">
+  <div class="form-container"> 
+    <h2>Registro Nuevo Alumno</h2>
+    <form>
+      <input type="text" class="form-control my-2" id="nombre" placeholder="Nombre del alumno" required>
+      <input type="text" class="form-control my-2" id="direccion" placeholder="Dirección del Alumno" required>
+      <input type="text" class="form-control my-2" id="padre" placeholder="Nombre del padre" required>
+      <input type="text" class="form-control my-2" id="madre" placeholder="Nombre de la madre" required>
+      <label for="apoderado">¿Quien sera el Apoderado Titular del alumno?</label>
+      <select id="apoderado" class="form-control my-2" required>
+        <option value="">Selecciona una opción</option>
+        <option value="padre">El Padre será Titular</option>
+        <option value="madre">La Madre será Titular</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Siguiente</button>
+    </form>
+  </div>
+</body>
+</html>
+

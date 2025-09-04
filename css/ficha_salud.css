@@ -1,0 +1,69 @@
+body.registro {
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.info-box {
+  background: #007BFF; /* azul */
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+form label {
+  display: block;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: normal; /* texto normal, no negrita */
+  color: #444;
+}
+
+form input[type="radio"] {
+  margin: 0 5px;
+}
+
+form select, form input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+form button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 20px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #218838;
+}
