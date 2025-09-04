@@ -1,0 +1,186 @@
+/* Reseteo básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+}
+
+/* Contenedor principal: divide en 2 columnas */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Panel izquierdo: formulario */
+.form-container {
+  width: 40%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f9f9f9;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  font-size: 14px;
+  margin: 10px 0 5px;
+}
+
+/* 👉 Solo inputs de texto y password ocupan 100% */
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #003366;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0055aa;
+}
+
+/* Panel derecho: imagen */
+.image-container {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eaeaea;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Botón principal */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #003366; /* Azul oscuro */
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #0055aa;
+}
+
+/* Botón secundario (Nuevo Registro) */
+.btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #28a745; /* Verde */
+  color: white;
+  text-align: center;
+  text-decoration: none; /* Para que no se vea como link */
+  font-size: 16px;
+}
+
+.btn-secondary:hover {
+  background-color: #218838;
+}
+
+/* Checkbox alineado correctamente */
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 15px;
+  gap: 8px; /* espacio entre el cuadrado y el texto */
+}
+
+.form-container input[type="checkbox"] {
+  width: auto;   /* 👉 evita que se estire */
+  margin: 0;
+}
+/* --- Página de Nuevo Registro --- */
+body.registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+body.registro .form-container {
+  width: 400px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+body.registro h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+body.registro form label {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 14px;
+}
+
+body.registro form input[type="text"],
+body.registro form input[type="email"],
+body.registro form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+body.registro form input[type="checkbox"] {
+  width: auto;
+  margin-right: 6px;
+}
+
+body.registro form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+body.registro form button:hover {
+  background-color: #218838;
+}
