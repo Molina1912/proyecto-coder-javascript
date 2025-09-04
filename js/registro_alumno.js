@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
           text: `${alumno.nombre} agregado correctamente`,
           confirmButtonText: 'Continuar'
         }).then(() => {
-          window.location.href = "datos-medicos.html"; // pasa a la siguiente etapa
+          window.location.href = "datos-medicos.html";
         });
       });
     }

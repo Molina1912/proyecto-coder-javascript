@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Bienvenida</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="bienvenida">
+  <div class="welcome-container">
+    <h1>Sistema de Matrículas - Escuela Cordillera de los Andes</h1>
+    <h2 id="nombre-apoderado">Bienvenido/a, Apoderado</h2>
+    <p class="info-box">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo blandit fermentum. Integer
+      posuere, nulla id porta aliquet, lacus risus fermentum ex, vitae laoreet augue metus id augue.
+    </p>
+<div class="welcome-actions">
+  <button onclick="window.location.href='../pages/nuevo_alumno.html'" class="btn-primary btn-small">
+    Agregar nuevo alumno
+  </button>
+</div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioActivo"));
+      if (usuarioLogueado) {
+        document.getElementById("nombre-apoderado").textContent =
+          `Bienvenido/a, ${usuarioLogueado.nombre} ${usuarioLogueado.apellido}`;
+      }
+    });
+  </script>
+</body>
+</html>

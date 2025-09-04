@@ -1,37 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
+  const loginForm = document.getElementById("login-form");
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault(); // Evita que se envíe el formulario automáticamente
+  if (!loginForm) return;
 
-    // Capturamos valores
-    const nombre = form.querySelector('input[type="text"]').value.trim();
-    console.log(nombre)
-    const apellido = form.querySelectorAll('input[type="text"]')[1]?.value.trim();
-    const email = form.querySelector('input[type="email"]').value.trim();
-    const password = form.querySelectorAll('input[type="password"]')[0].value;
-    const repeatPassword = form.querySelectorAll('input[type="password"]')[1].value;
-    const condiciones = form.querySelector("#condiciones").checked;
+  loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-    // Validaciones
-    if (!nombre || !apellido || !email || !password || !repeatPassword) {
-      alert("⚠️ Por favor completa todos los campos.");
+    const email = document.getElementById("email").value.trim().toLowerCase();
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+      alert("⚠️ Ingresa tu correo y contraseña.");
       return;
     }
 
-    if (password !== repeatPassword) {
-      alert("❌ Las contraseñas no coinciden.");
+    let apoderados = JSON.parse(localStorage.getItem("apoderados")) || [];
+    const usuario = apoderados.find(ap => ap.email === email);
+
+    if (!usuario) {
+      alert("❌ No existe un usuario con este correo.");
       return;
     }
 
-    if (!condiciones) {
-      alert("⚠️ Debes aceptar los términos y condiciones.");
+    if (usuario.password !== password) {
+      alert("❌ Contraseña incorrecta.");
       return;
     }
 
-    // Si todo está correcto
-    alert(`✅ Registro exitoso. Bienvenido/a, ${nombre} ${apellido}!`);
-
-    form.reset(); // Limpia el formulario
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+    alert(`🎉 Bienvenido/a nuevamente, ${usuario.nombre} ${usuario.apellido}`);
+    window.location.href = "pages/bienvenida.html";
   });
 });

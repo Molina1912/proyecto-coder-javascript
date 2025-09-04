@@ -9,18 +9,13 @@
 <body class="registro">
   <div class="form-container">
     <h2>Ficha de Salud del Alumno</h2>
-
-    <!-- Texto destacado -->
     <p class="info-box">
     La información solicitada en esta ficha de salud es fundamental para velar por el bienestar y seguridad de su hijo/a dentro del establecimiento. Por favor complete cada pregunta con total sinceridad.
     </p>
-
     <form>
-      <!-- Pregunta 1 -->
       <label>1. ¿Actualmente, su hijo/a padece de alguna enfermedad?</label><br>
-      <input type="radio" name="enfermedad" value="no" onclick="toggleSelect('enfermedad', false)"> No
-      <input type="radio" name="enfermedad" value="si" onclick="toggleSelect('enfermedad', true)"> Sí
-
+      <input type="radio" name="enfermedad" value="no" onclick="toggleSelect('enfermedad', false)">No
+      <input type="radio" name="enfermedad" value="si" onclick="toggleSelect('enfermedad', true)">Sí
       <div id="select-enfermedad" style="display:none; margin-top:10px;">
         <select onchange="toggleOtra('enfermedad')">
           <option value="">Seleccione</option>
@@ -81,7 +76,7 @@
       </div>
 
       <br>
-      <button type="submit" class="btn btn-primary">Guardar Ficha de Salud</button>
+      <button type="submit" class="btn btn-primary">Guardar información</button>
       <button type="submit" class="btn btn-secondary">Siguiente</button>
     </form>
   </div>
