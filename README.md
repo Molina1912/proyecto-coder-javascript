@@ -1,4 +1,4 @@
-🏫 Sistema de Matrículas - Colegio Cordillera de los Andes
+Sistema de Matrículas - Colegio Cordillera de los Andes
 
 Proyecto Curso JavaScript - CoderHouse
 
@@ -20,7 +20,7 @@ Características principales :
 * Alertas visuales usando SweetAlert2 para confirmaciones y notificaciones.
 
 
-🛠 Tecnologías utilizadas : 
+Tecnologías utilizadas : 
 
 * HTML & CSS
 
