@@ -1,4 +1,4 @@
-/* Reseteo básico */
+
 * {
   margin: 0;
   padding: 0;
@@ -10,13 +10,11 @@ body {
   height: 100vh;
 }
 
-/* Contenedor principal: divide en 2 columnas */
 .container {
   display: flex;
   height: 100vh;
 }
 
-/* Panel izquierdo: formulario */
 .form-container {
   width: 40%;
   padding: 40px;
@@ -25,24 +23,26 @@ body {
   justify-content: center;
   background-color: #f9f9f9;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  gap: 10px; /* Reduce el espacio entre los elementos internos */
+  margin-bottom: 20px;
 }
 
 .form-container h2 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #333;
 }
 
-label {
+.label {
   font-size: 14px;
-  margin: 10px 0 5px;
+  margin: 5px;
 }
 
-/* 👉 Solo inputs de texto y password ocupan 100% */
+
 .form-container input[type="email"],
 .form-container input[type="password"] {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -65,10 +65,10 @@ button:hover {
 
 .logo {
   position: absolute;
-  top: 15px;              /* separación desde arriba */
-  left: 50%;              /* lo llevamos al centro */
-  transform: translateX(-50%); /* corrige el desajuste */
-  width: 120px;           /* tamaño del logo */
+  top: 15px;             
+  left: 50%;             
+  transform: translateX(-50%); 
+  width: 120px;       
   height: auto;
   z-index: 1000;
 }
@@ -78,7 +78,7 @@ button:hover {
   height: auto;
   display: block;
 }
-/* Panel derecho: imagen */
+
 .image-container {
   width: 60%;
   display: flex;
@@ -93,7 +93,7 @@ button:hover {
   object-fit: cover;
 }
 
-/* Botón principal */
+
 .btn-primary {
   display: block;
   width: 100%;
@@ -101,7 +101,7 @@ button:hover {
   margin-bottom: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #003366; /* Azul oscuro */
+  background-color: #003366; 
   color: white;
   cursor: pointer;
   text-align: center;
@@ -112,17 +112,16 @@ button:hover {
   background-color: #0055aa;
 }
 
-/* Botón secundario (Nuevo Registro) */
 .btn-secondary {
   display: block;
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #28a745; /* Verde */
+  background-color: #28a745; 
   color: white;
   text-align: center;
-  text-decoration: none; /* Para que no se vea como link */
+  text-decoration: none; 
   font-size: 16px;
 }
 
@@ -130,19 +129,11 @@ button:hover {
   background-color: #218838;
 }
 
-/* Checkbox alineado correctamente */
-.checkbox {
-  display: flex;
-  align-items: center;
-  margin: 10px 0 15px;
-  gap: 8px; /* espacio entre el cuadrado y el texto */
-}
-
 .form-container input[type="checkbox"] {
-  width: auto;   /* 👉 evita que se estire */
+  width: auto; 
   margin: 0;
 }
-/* --- Página de Nuevo Registro --- */
+
 body.registro {
   display: flex;
   justify-content: center;
@@ -201,23 +192,21 @@ body.registro form button:hover {
 }
 
 .form-container label {
-  display: block;       /* asegura que el label ocupe toda la línea */
+  display: block;       
   margin-bottom: 15px;
-  padding: 10px;   /* espacio debajo del texto de la pregunta */
+  padding: 10px;   
   font-size: 14px;
-  font-weight: bold;    /* opcional, para destacar */
+  font-weight: bold;    
 }
 
-/* Ajuste de espacio para los selects */
 .form-container select {
-  margin-bottom: 15px; /* da espacio debajo del select */
-  padding: 10px;       /* igual que los inputs */
+  margin-bottom: 15px; 
+  padding: 10px;      
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
 }
 
-/* --- Página de Bienvenida --- */
 body.bienvenida {
   display: flex;
   justify-content: center;
@@ -258,7 +247,6 @@ body.bienvenida {
   line-height: 1.5;
 }
 
-/* Botón pequeño a la derecha */
 .welcome-container .btn-primary {
   background-color: #28a745;
   color: white;
@@ -266,8 +254,8 @@ body.bienvenida {
   padding: 8px 16px;
   border-radius: 6px;
   display: inline-block;
-  float: none;   /* 👉 lo lleva a la derecha */
-  width: auto;    /* 👉 evita ocupar toda la fila */
+  float: none;  
+  width: auto;    
 }
 
 .welcome-container .btn-primary:hover {

@@ -1,18 +1,42 @@
 document.getElementById('guardar-btn').addEventListener('click', function() {
-  // Recopilar datos (opcional, para guardar en localStorage)
+  // Construimos el objeto ficha
   const ficha = {
-    enfermedad: document.querySelector('input[name="enfermedad"]:checked')?.value || '',
-    tratamiento: document.querySelector('input[name="tratamiento"]:checked')?.value || '',
-    operaciones: document.querySelector('input[name="operaciones"]:checked')?.value || '',
-    fisico: document.querySelector('input[name="fisico"]:checked')?.value || ''
+    enfermedad: getRespuesta("enfermedad"),
+    tratamiento: getRespuesta("tratamiento"),
+    operaciones: getRespuesta("operaciones"),
+    fisico: getRespuesta("fisico")
   };
+
+  // Guardamos en localStorage
   localStorage.setItem('ficha_salud', JSON.stringify(ficha));
 
-  // Mostrar alerta
+  // SweetAlert + redirección
   Swal.fire({
     icon: 'success',
     title: 'Información guardada',
-    text: 'Su información ha sido guardada correctamente.',
-    confirmButtonText: 'Aceptar'
+    text: 'La ficha de salud ha sido registrada correctamente.',
+    confirmButtonText: 'Continuar'
+  }).then(() => {
+    window.location.href = '../pages/pagina_resumen.html';
   });
 });
+
+/**
+ * Función auxiliar para obtener respuesta
+ * Si responde "sí" y selecciona "otra", toma el texto ingresado
+ */
+function getRespuesta(campo) {
+  const seleccion = document.querySelector(`input[name="${campo}"]:checked`);
+  if (!seleccion) return ""; // No respondió
+
+  if (seleccion.value === "si") {
+    const select = document.querySelector(`#select-${campo} select`);
+    const otra = document.getElementById(`otra-${campo}`);
+    if (select && select.value === "otra" && otra) {
+      return otra.value.trim() || "Otra (no especificada)";
+    }
+    return select?.value || "Sí";
+  }
+
+  return "No";
+}

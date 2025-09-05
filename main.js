@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password").value;
 
     if (!email || !password) {
-      alert("⚠️ Ingresa tu correo y contraseña.");
+      Swal.fire("⚠️ Campos incompletos", "Ingresa tu correo y contraseña.", "warning");
       return;
     }
 
@@ -18,17 +18,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuario = apoderados.find(ap => ap.email === email);
 
     if (!usuario) {
-      alert("❌ No existe un usuario con este correo.");
+      Swal.fire("❌ Error", "No existe un usuario con este correo.", "error");
       return;
     }
 
     if (usuario.password !== password) {
-      alert("❌ Contraseña incorrecta.");
+      Swal.fire("❌ Error", "Contraseña incorrecta.", "error");
       return;
     }
 
     localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
-    alert(`🎉 Bienvenido/a nuevamente, ${usuario.nombre} ${usuario.apellido}`);
-    window.location.href = "pages/bienvenida.html";
+
+    Swal.fire({
+      title: "🎉 Bienvenido/a",
+      text: `${usuario.nombre} ${usuario.apellido}`,
+      icon: "success",
+      confirmButtonText: "Continuar"
+    }).then(() => {
+      window.location.href ="pages/pagina_bienvenida.html";
+    });
   });
 });

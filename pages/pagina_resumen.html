@@ -2,15 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis Datos - Colegio Cordillera</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/resumen.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <div class="container mt-5">
-    <h2>Datos ingresados</h2>
-
+    <h2>Resumen - Datos Ingresados</h2>
+    <p class="parrafo-resumen">
+      Los datos ingresados de su alumno ya están registrados en nuestro sistema. 
+      Si la información está correcta, presione el botón <strong>FIRMA DIGITAL</strong>. <br>
+      De lo contrario, puede modificar los datos presionando <strong>"Editar"</strong> o si prefiere <strong>"Eliminar"</strong>.
+    </p>
     <table class="table table-striped mt-3" id="tabla-alumnos">
       <thead>
         <tr>
@@ -18,28 +22,27 @@
           <th>Dirección</th>
           <th>Padre</th>
           <th>Madre</th>
-          <th>Apoderado</th>
+          <th>Apoderado Titular</th>
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Filas de alumnos se cargan aquí -->
+       
       </tbody>
     </table>
 
     <a href="nuevo_alumno.html" class="btn btn-primary mt-3">Agregar Nuevo Alumno</a>
   </div>
 
-  <!-- Modal para editar -->
   <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form id="form-editar">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editarModalLabel">Editar Alumno</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-          <div class="modal-body">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editarModalLabel">Editar Alumno</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form-editar">
             <input type="hidden" id="index-alumno">
             <div class="mb-3">
               <label>Nombre</label>
@@ -61,12 +64,12 @@
               <label>Apoderado</label>
               <input type="text" id="editar-apoderado" class="form-control">
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Guardar cambios</button>
-          </div>
-        </form>
+          </form>
+        </div>
+        <div class="modal-footer d-flex flex-column align-items-center">
+          <button type="button" class="btn btn-secondary mb-2 w-100" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" form="form-editar" class="btn btn-primary mb-2 w-100">Guardar cambios</button>
+        </div>
       </div>
     </div>
   </div>

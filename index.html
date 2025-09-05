@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sistema de Matriculas en linea</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -20,14 +18,6 @@
         <label for="password">Contraseña:</label>
         <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
 
-        <div class="checkbox">
-          <input type="checkbox" id="remember">
-          <label for="remember">Recordarme</label>
-        </div>
-
-        <a href="#">¿Olvidaste tu contraseña?</a>
-        <br><br>
-
         <button type="submit" class="btn-primary">Ingresar</button>
         <a href="pages/nuevo_registro.html" class="btn-secondary">Nuevo Apoderado</a>
       </form>
@@ -36,11 +26,7 @@
       <img src="img/background_inicio.png" alt="Imagen de bienvenida">
     </div>
   </div>
-  <script>
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      window.location.href = 'pages/pagina_bienvenida.html';
-    });
-  </script>
+  <script src="./main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body> 
 </html>

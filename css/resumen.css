@@ -1,0 +1,43 @@
+ #firma-btn {
+      background-color: #28a745; /* verde intenso */
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      padding: 10px 0;
+      font-size: 1.1rem;
+      transition: transform 0.2s;
+    }
+
+    #firma-btn:hover {
+      background-color: #218838; /* verde más oscuro al pasar el mouse */
+      transform: translateY(-2px);
+    }
+
+    /* Estilo para el párrafo informativo */
+.parrafo-resumen {
+    background-color: #f0f9ff;       /* Fondo azul muy claro */
+    border-left: 5px solid #28a745;  /* Barra verde a la izquierda */
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: #1b1b1b;                  /* Texto oscuro */
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.parrafo-resumen strong {
+    color: #000000;                  /* Resalta FIRMA DIGITAL */
+    font-weight: 600;
+}
+
+/* Separación entre título y párrafo */
+h2 {
+  margin-bottom: 20px; /* Ajusta el valor a tu gusto */
+}
+
+.parrafo-resumen {
+  margin-top: 10px;    /* Opcional, si quieres más espacio arriba */
+}
+
