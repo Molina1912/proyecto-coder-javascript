@@ -4,39 +4,39 @@ document.addEventListener('DOMContentLoaded', function() {
   try {
     let alumnos = JSON.parse(localStorage.getItem('alumnos')) || [];
 
+    // Función para mostrar todos los alumnos en la tabla
     function mostrarAlumnos() {
-      const lista = document.getElementById('lista-alumnos');
-      if (!lista) return;
-      lista.innerHTML = '';
+      const tabla = document.getElementById('tabla-alumnos').querySelector('tbody');
+      if (!tabla) return;
+      tabla.innerHTML = '';
+
       alumnos.forEach((alumno, index) => {
-        const item = document.createElement('li');
-        item.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
-        item.innerHTML = `
-          <div>
-            <strong>Nombre:</strong> ${alumno.nombre} <br>
-            <strong>Curso:</strong> ${alumno.curso} <br>
-            <strong>Dirección:</strong> ${alumno.direccion} <br>
-            <strong>Correo:</strong> ${alumno.correo} <br>
-            <strong>Padre:</strong> ${alumno.padre} <br>
-            <strong>Madre:</strong> ${alumno.madre} <br>
-            <strong>Apoderado:</strong> ${alumno.apoderado}
-          </div>
-          <div>
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+          <td>${alumno.nombre}</td>
+          <td>${alumno.curso}</td>
+          <td>${alumno.direccion}</td>
+          <td>${alumno.correo}</td>
+          <td>${alumno.padre}</td>
+          <td>${alumno.madre}</td>
+          <td>${alumno.apoderado}</td>
+          <td>
             <button class="btn btn-warning btn-sm editar me-2" data-index="${index}">Editar</button>
             <button class="btn btn-danger btn-sm eliminar" data-index="${index}">Eliminar</button>
-          </div>
+          </td>
         `;
-        lista.appendChild(item);
+        tabla.appendChild(fila);
       });
     }
 
+    // Función para eliminar alumno
     function eliminarAlumno(index) {
       alumnos.splice(index, 1);
       localStorage.setItem('alumnos', JSON.stringify(alumnos));
       mostrarAlumnos();
     }
 
-    // Clicks de editar y eliminar
+    // Manejar clicks de editar y eliminar
     document.addEventListener('click', function(e) {
       if (e.target.classList.contains('eliminar')) {
         const index = e.target.dataset.index;
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const index = e.target.dataset.index;
         const alumno = alumnos[index];
 
-        // Rellenar el modal con los datos existentes
+        // Rellenar modal con los datos existentes
         document.getElementById('index-alumno').value = index;
         document.getElementById('editar-nombre').value = alumno.nombre;
         document.getElementById('editar-curso').value = alumno.curso;

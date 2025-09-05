@@ -65,11 +65,15 @@
         </select>
         <input type="text" id="otra-fisico" placeholder="Especifique el problema físico" style="display:none; margin-top:8px;" required>
       </div>
+      <p class="info-box">
+    Si ya ha completado su información, presione el boton "Guardar Información", luego presione "Siguiente" para finalizar el proceso de matricula 2026
+    </p>
       <br>
-      <button type="submit" class="btn btn-primary">Guardar información</button>
-      <button type="submit" class="btn btn-secondary">Siguiente</button>
+    <button type="button" id="guardar-btn" class="btn btn-primary">Guardar información</button>
+    <a href="pagina_resumen.html" class="btn btn-secondary">Siguiente</a>
     </form>
   </div>
-  <script src="../js/mostrar_ocultar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../js/registro_salud.js"></script>
 </body>
 </html>

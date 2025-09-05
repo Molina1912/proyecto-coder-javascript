@@ -10,9 +10,29 @@
 <body>
   <div class="container mt-5">
     <h2>Datos ingresados</h2>
-    <ul id="lista-alumnos" class="list-group mt-3"></ul>
+
+    <table class="table table-striped mt-3" id="tabla-alumnos">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Curso</th>
+          <th>Dirección</th>
+          <th>Correo</th>
+          <th>Padre</th>
+          <th>Madre</th>
+          <th>Apoderado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas de alumnos se cargan aquí -->
+      </tbody>
+    </table>
+
     <a href="nuevo_alumno.html" class="btn btn-primary mt-3">Agregar Nuevo Alumno</a>
   </div>
+
+  <!-- Modal para editar -->
   <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
