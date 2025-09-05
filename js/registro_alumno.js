@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         Swal.fire({
           icon: "success",
-          title: "✅ Alumno firmado digitalmente",
+          title: "Alumno firmado digitalmente",
           text: `El alumno ${alumno.nombre} ha sido firmado correctamente.`,
           confirmButtonText: "Aceptar"
         });

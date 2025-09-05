@@ -23,7 +23,7 @@ body {
   justify-content: center;
   background-color: #f9f9f9;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  gap: 10px; /* Reduce el espacio entre los elementos internos */
+  gap: 10px;
   margin-bottom: 20px;
 }
 

@@ -1,11 +1,10 @@
-// firma_digital.js
 document.addEventListener("DOMContentLoaded", () => {
-  const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo")); // apoderado logueado
+  const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
 
   document.addEventListener("click", function (e) {
     if (!e.target.classList.contains("firma")) return;
 
-    // Re-lee alumnos para estar seguro de tener los últimos cambios
+    
     const alumnos = JSON.parse(localStorage.getItem("alumnos")) || [];
     const index = parseInt(e.target.dataset.index, 10);
     const alumno = alumnos[index];
@@ -15,14 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Fecha y hora actual (formato legible)
+    
     const fechaHora = new Date().toLocaleString("es-CL", {
       dateStyle: "short",
       timeStyle: "medium"
     });
 
-    // Obtener la ficha: primero preferimos la ficha asociada al alumno,
-    // si no existe, usamos la ficha global guardada (compatibilidad)
     const fichaGlobal = JSON.parse(localStorage.getItem('ficha_salud')) || null;
     const ficha = alumno.ficha_salud || fichaGlobal || {
       enfermedad: "No especificado",
@@ -31,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fisico: "No especificado"
     };
 
-    // Construir objeto de firma incluyendo la ficha
+
     const firma = {
       alumno: {
         nombre: alumno.nombre,
@@ -49,19 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
       fechaHora
     };
 
-    // Guardar en historial de firmas
+
     const firmas = JSON.parse(localStorage.getItem("firmas")) || [];
     firmas.push(firma);
     localStorage.setItem("firmas", JSON.stringify(firmas));
 
-    // Popup de confirmación
+
     Swal.fire({
       icon: "success",
-      title: "✅ Documento firmado digitalmente",
+      title: "Documento firmado digitalmente",
       text: `El alumno ${alumno.nombre} ha sido firmado correctamente.`,
       confirmButtonText: "Aceptar"
     }).then(() => {
-      // Detalle con ficha incluida
+      
       const detalle = `
 📌 Alumno:
 - Nombre: ${firma.alumno.nombre}
@@ -95,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (result.isConfirmed) {
           Swal.fire("Puedes continuar firmando otros alumnos.", "", "info");
         } else if (result.isDenied) {
-          // limpieza de sesión (mantener historial de firmas si quieres histórico)
+        
           localStorage.removeItem("alumnos");
           localStorage.removeItem("ficha_salud");
           localStorage.removeItem("usuarioActivo");

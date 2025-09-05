@@ -8,16 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const el = id => document.getElementById(id);
       const nombre = (el("nombre")?.value || "").trim();
-      const apellido = (el("apellido")?.value || "").trim(); // si no existe queda ""
+      const apellido = (el("apellido")?.value || "").trim();
       const email = (el("email")?.value || "").trim().toLowerCase();
       const password = (el("password")?.value || "");
       const repeatPassword = el("repeatPassword") ? el("repeatPassword").value : null;
-      const condiciones = el("condiciones") ? el("condiciones").checked : true; // si no existe asumimos ok
+      const condiciones = el("condiciones") ? el("condiciones").checked : true; 
 
-      // Validaciones mínimas (ajusta si quieres exigir apellido/confirmación)
+
       if (!nombre || !email || !password) {
         if (typeof Swal !== "undefined") {
-          Swal.fire("⚠️ Campos incompletos", "Por favor completa nombre, correo y contraseña.", "warning");
+          Swal.fire("Campos incompletos", "Por favor completa nombre, correo y contraseña.", "warning");
         } else {
           alert("Por favor completa nombre, correo y contraseña.");
         }
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (repeatPassword !== null && password !== repeatPassword) {
         if (typeof Swal !== "undefined") {
-          Swal.fire("❌ Error", "Las contraseñas no coinciden.", "error");
+          Swal.fire("Error", "Las contraseñas no coinciden.", "error");
         } else {
           alert("Las contraseñas no coinciden.");
         }
@@ -35,19 +35,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (el("condiciones") && !condiciones) {
         if (typeof Swal !== "undefined") {
-          Swal.fire("⚠️ Importante", "Debes aceptar los términos y condiciones.", "info");
+          Swal.fire("Importante", "Debes aceptar los términos y condiciones.", "info");
         } else {
           alert("Debes aceptar los términos y condiciones.");
         }
         return;
       }
 
-      // Guardar en array apoderados (formato consistente)
+      
       const apoderados = JSON.parse(localStorage.getItem("apoderados")) || [];
 
       if (apoderados.some(a => a.email === email)) {
         if (typeof Swal !== "undefined") {
-          Swal.fire("❌ Error", "Este correo ya está registrado.", "error");
+          Swal.fire("Error", "Este correo ya está registrado.", "error");
         } else {
           alert("Este correo ya está registrado.");
         }
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (typeof Swal !== "undefined") {
         await Swal.fire({
-          title: "✅ Registro exitoso",
+          title: "Registro exitoso",
           text: `Bienvenido/a, ${nombre} ${apellido || ""}`.trim(),
           icon: "success",
           confirmButtonText: "Ir al login"

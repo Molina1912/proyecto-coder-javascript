@@ -1,10 +1,9 @@
-// Función para mostrar/ocultar el select según respuesta sí/no
 function toggleSelect(campo, mostrar) {
   const divSelect = document.getElementById(`select-${campo}`);
   if (divSelect) {
     divSelect.style.display = mostrar ? 'block' : 'none';
     if (!mostrar) {
-      // Limpiamos valores si se oculta
+      
       const select = divSelect.querySelector('select');
       const otra = divSelect.querySelector('input');
       if (select) select.value = '';
@@ -16,7 +15,7 @@ function toggleSelect(campo, mostrar) {
   }
 }
 
-// Función para mostrar/ocultar el input “otra” según opción seleccionada
+
 function toggleOtra(campo) {
   const divSelect = document.getElementById(`select-${campo}`);
   if (!divSelect) return;
@@ -28,7 +27,7 @@ function toggleOtra(campo) {
   }
 }
 
-// Guardar ficha de salud
+
 document.getElementById('guardar-btn').addEventListener('click', function() {
   const ficha = {
     enfermedad: getRespuesta("enfermedad"),
@@ -49,10 +48,9 @@ document.getElementById('guardar-btn').addEventListener('click', function() {
   });
 });
 
-// Obtener respuesta considerando “otra”
 function getRespuesta(campo) {
   const seleccion = document.querySelector(`input[name="${campo}"]:checked`);
-  if (!seleccion) return ""; // No respondió
+  if (!seleccion) return "";
 
   if (seleccion.value === "si") {
     const select = document.querySelector(`#select-${campo} select`);
