@@ -26,12 +26,9 @@
         </select>
         <input type="text" id="otra-enfermedad" placeholder="Especifique la enfermedad" style="display:none; margin-top:8px;" required>
       </div>
-
-      <!-- Pregunta 2 -->
       <label>2. ¿Actualmente está en tratamiento o toma algún medicamento?</label><br>
       <input type="radio" name="tratamiento" value="no" onclick="toggleSelect('tratamiento', false)"> No
       <input type="radio" name="tratamiento" value="si" onclick="toggleSelect('tratamiento', true)"> Sí
-
       <div id="select-tratamiento" style="display:none; margin-top:10px;">
         <select onchange="toggleOtra('tratamiento')">
           <option value="">Seleccione</option>
@@ -42,12 +39,9 @@
         </select>
         <input type="text" id="otra-tratamiento" placeholder="Especifique el tratamiento" style="display:none; margin-top:8px;" required>
       </div>
-
-      <!-- Pregunta 3 -->
       <label>3. ¿Ha tenido operaciones?</label><br>
       <input type="radio" name="operaciones" value="no" onclick="toggleSelect('operaciones', false)"> No
       <input type="radio" name="operaciones" value="si" onclick="toggleSelect('operaciones', true)"> Sí
-
       <div id="select-operaciones" style="display:none; margin-top:10px;">
         <select onchange="toggleOtra('operaciones')">
           <option value="">Seleccione</option>
@@ -58,12 +52,9 @@
         </select>
         <input type="text" id="otra-operaciones" placeholder="Especifique la operación" style="display:none; margin-top:8px;" required>
       </div>
-
-      <!-- Pregunta 4 -->
       <label>4. ¿Presenta algún problema físico?</label><br>
       <input type="radio" name="fisico" value="no" onclick="toggleSelect('fisico', false)"> No
       <input type="radio" name="fisico" value="si" onclick="toggleSelect('fisico', true)"> Sí
-
       <div id="select-fisico" style="display:none; margin-top:10px;">
         <select onchange="toggleOtra('fisico')">
           <option value="">Seleccione</option>
@@ -74,7 +65,6 @@
         </select>
         <input type="text" id="otra-fisico" placeholder="Especifique el problema físico" style="display:none; margin-top:8px;" required>
       </div>
-
       <br>
       <button type="submit" class="btn btn-primary">Guardar información</button>
       <button type="submit" class="btn btn-secondary">Siguiente</button>

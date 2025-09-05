@@ -14,31 +14,33 @@
     <div class="form-container"> 
       <h2>Sistema de Matriculas en linea</h2>
       <form id="login-form">
-  <label for="email">Email:</label>
-  <input type="email" id="email" placeholder="Ingresa tu email" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Ingresa tu email" required>
 
-  <label for="password">Contraseña:</label>
-  <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
 
-  <div class="checkbox">
-    <input type="checkbox" id="remember">
-    <label for="remember">Recordarme</label>
-  </div>
+        <div class="checkbox">
+          <input type="checkbox" id="remember">
+          <label for="remember">Recordarme</label>
+        </div>
 
-  <a href="#">¿Olvidaste tu contraseña?</a>
-  <br><br>
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <br><br>
 
-  <button type="submit" class="btn-primary">Ingresar</button>
-  <a href="pages/nuevo_registro.html" class="btn-secondary">Nuevo Apoderado</a>
-</form>
-
+        <button type="submit" class="btn-primary">Ingresar</button>
+        <a href="pages/nuevo_registro.html" class="btn-secondary">Nuevo Apoderado</a>
+      </form>
     </div>
     <div class="image-container">
       <img src="img/background_inicio.png" alt="Imagen de bienvenida">
     </div>
   </div>
-  <script src="main.js"></script>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.location.href = 'pages/pagina_bienvenida.html';
+    });
+  </script>
 </body> 
 </html>
-
-
