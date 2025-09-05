@@ -266,7 +266,7 @@ body.bienvenida {
   padding: 8px 16px;
   border-radius: 6px;
   display: inline-block;
-  float: right;   /* 👉 lo lleva a la derecha */
+  float: none;   /* 👉 lo lleva a la derecha */
   width: auto;    /* 👉 evita ocupar toda la fila */
 }
 

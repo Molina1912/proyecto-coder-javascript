@@ -5,29 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registro Nuevo Alumno</title>
   <link rel="stylesheet" href="../styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="registro">
   <div class="form-container"> 
     <h2>Registro Nuevo Alumno</h2>
-    <form>
+    <form id="form-alumno">
       <input type="text" class="form-control my-2" id="nombre" placeholder="Nombre del alumno" required>
       <input type="text" class="form-control my-2" id="direccion" placeholder="Dirección del Alumno" required>
       <input type="text" class="form-control my-2" id="padre" placeholder="Nombre del padre" required>
       <input type="text" class="form-control my-2" id="madre" placeholder="Nombre de la madre" required>
-      <label for="apoderado">¿Quien sera el Apoderado Titular del alumno?</label>
+      <label for="apoderado">¿Quién será el Apoderado Titular del alumno?</label>
       <select id="apoderado" class="form-control my-2" required>
         <option value="">Selecciona una opción</option>
         <option value="padre">El Padre será Titular</option>
         <option value="madre">La Madre será Titular</option>
       </select>
       <button type="submit" class="btn btn-primary">Guardar información</button>
-
-    <button type="button" class="btn btn-secondary" 
-        onclick="window.location.href='../pages/registro_ficha_salud_alumno.html'">
-        Siguiente
-    </button>
+      <button type="button" class="btn btn-secondary" 
+          onclick="window.location.href='../pages/registro_ficha_salud_alumno.html'">
+          Siguiente
+      </button>
     </form>
   </div>
+
+  <script>
+    document.getElementById('form-alumno').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Obtener valores del formulario
+      const nombre = document.getElementById('nombre').value;
+      const direccion = document.getElementById('direccion').value;
+      const padre = document.getElementById('padre').value;
+      const madre = document.getElementById('madre').value;
+      const apoderado = document.getElementById('apoderado').value;
+
+      // Crear objeto alumno
+      const alumno = { nombre, direccion, padre, madre, apoderado };
+
+      // Guardar en localStorage
+      let alumnos = JSON.parse(localStorage.getItem('alumnos')) || [];
+      alumnos.push(alumno);
+      localStorage.setItem('alumnos', JSON.stringify(alumnos));
+
+      // Mostrar SweetAlert
+      Swal.fire({
+        icon: 'success',
+        title: 'Guardado',
+        text: 'La información del alumno ha sido guardada con éxito',
+        confirmButtonText: 'Aceptar'
+      }).then(() => {
+        // Opcional: redirigir al siguiente paso
+        window.location.href = '../pages/registro_ficha_salud_alumno.html';
+      });
+    });
+  </script>
 </body>
 </html>
-
