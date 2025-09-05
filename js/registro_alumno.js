@@ -83,30 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
       editarModal.hide();
       Swal.fire("Actualizado", "Datos del alumno actualizados con éxito", "success");
     });
-
-    // Botón global FIRMA DIGITAL
-    // const firmaBtn = document.getElementById('firma-btn');
-    //if (firmaBtn) {
-      //firmaBtn.addEventListener('click', function() {
-        //if (alumnos.length === 0) {
-          //Swal.fire("Atención", "Debe registrar al menos un alumno antes de enviar a firma.", "warning");
-          //return;
-        //}
-
-        //Swal.fire({
-          //icon: "success",
-          //title: "✅ Matrícula enviada a firma digital",
-          //text: "El proceso de matrícula ha finalizado correctamente.",
-          //confirmButtonText: "Aceptar"
-        //}).then(() => {
-          // Opcional: limpiar localStorage después de la firma
-          // localStorage.removeItem('alumnos');
-          // window.location.href = "../index.html"; // volver al inicio
-        //});
-      //});
-    //}
-
-    // Mostrar alumnos al cargar
+    
     mostrarAlumnos();
 
   } catch (error) {

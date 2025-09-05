@@ -1,5 +1,35 @@
+// Función para mostrar/ocultar el select según respuesta sí/no
+function toggleSelect(campo, mostrar) {
+  const divSelect = document.getElementById(`select-${campo}`);
+  if (divSelect) {
+    divSelect.style.display = mostrar ? 'block' : 'none';
+    if (!mostrar) {
+      // Limpiamos valores si se oculta
+      const select = divSelect.querySelector('select');
+      const otra = divSelect.querySelector('input');
+      if (select) select.value = '';
+      if (otra) {
+        otra.value = '';
+        otra.style.display = 'none';
+      }
+    }
+  }
+}
+
+// Función para mostrar/ocultar el input “otra” según opción seleccionada
+function toggleOtra(campo) {
+  const divSelect = document.getElementById(`select-${campo}`);
+  if (!divSelect) return;
+
+  const select = divSelect.querySelector('select');
+  const otra = divSelect.querySelector('input');
+  if (select && otra) {
+    otra.style.display = select.value === 'otra' ? 'block' : 'none';
+  }
+}
+
+// Guardar ficha de salud
 document.getElementById('guardar-btn').addEventListener('click', function() {
-  // Construimos el objeto ficha
   const ficha = {
     enfermedad: getRespuesta("enfermedad"),
     tratamiento: getRespuesta("tratamiento"),
@@ -7,10 +37,8 @@ document.getElementById('guardar-btn').addEventListener('click', function() {
     fisico: getRespuesta("fisico")
   };
 
-  // Guardamos en localStorage
   localStorage.setItem('ficha_salud', JSON.stringify(ficha));
 
-  // SweetAlert + redirección
   Swal.fire({
     icon: 'success',
     title: 'Información guardada',
@@ -21,10 +49,7 @@ document.getElementById('guardar-btn').addEventListener('click', function() {
   });
 });
 
-/**
- * Función auxiliar para obtener respuesta
- * Si responde "sí" y selecciona "otra", toma el texto ingresado
- */
+// Obtener respuesta considerando “otra”
 function getRespuesta(campo) {
   const seleccion = document.querySelector(`input[name="${campo}"]:checked`);
   if (!seleccion) return ""; // No respondió
